@@ -161,16 +161,24 @@ body, html {
 
 /* Background Image Layer (Updated Path) */
 .hero-bg-image {
-    background-image: url('images/rider-bg.jpg');
+    background-image: linear-gradient(
+    rgba(0, 0, 0, 0.7), /* Top/Starting color (Red, Green, Blue, Alpha/Opacity) */
+    rgba(0, 0, 0, 0.7)  /* Bottom/Ending color (Keep identical for a solid overlay) */
+    ),
+    url('../images/bg-apex-guild.png');
+    background-color: #111111; /* Fallback color */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    text-align: left !important; /* Forces text to align left */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adds a slight shadow to pop off the black bg */
     z-index: 1;
 }
 
 /* Dark overlay for right side text readability */
 .hero-bg-overlay {
-    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
     z-index: 2;
 }
 
@@ -228,24 +236,53 @@ body, html {
 }
 
 /* =========================================
-   Right Column (Text & CTA)
+   Right Column (Text & CTA Card)
    ========================================= */
 .right-content {
-    z-index: 5;
+        z-index: 5;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 }
 
-.sub-heading {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.5rem;
-    letter-spacing: 1px;
+
+/* Dark overlay inside the card */
+.hero-image-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Slightly lighter overlay */
+    z-index: 1;
 }
 
-.main-heading {
+/* Ensure text sits above the overlay */
+.hero-image-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Typography tweaked to match the target design perfectly */
+.hero-image-card .sub-heading {
     font-family: 'Oswald', sans-serif;
-    font-size: 6rem;
+    font-size: 1.5rem; 
+    letter-spacing: 2px;
+}
+
+.hero-image-card .main-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4.5rem; /* Scaled up so "HELMET" dominates */
     letter-spacing: 2px;
     line-height: 1;
-    text-shadow: 4px 4px 10px rgba(0,0,0,0.6);
+    margin-left: -3px; /* Pulls "HELMET" slightly left to optically align with the F in Full Face */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero-image-card .description-text {
+    font-size: 0.95rem; 
+    max-width: 380px;
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 .description-text {
