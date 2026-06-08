@@ -5,7 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #111111;
+    background-color: #ffffff;
     height: 100%;
 }
 
@@ -321,6 +321,11 @@ body, html {
    Sales & Promotions Section
    ========================================= */
 
+.slider-section {
+    background-color: #ffffff !important;
+    padding: 4rem 0;
+}
+
 .sales-section {
     background-color: #ffffff;
 }
@@ -330,6 +335,134 @@ h2 {
     color: #cc0000;
     text-shadow: 1px 1px 5px rgba(204, 0, 0, 0.5);
 }
+
+/* =========================================
+   Cards or Headings Section
+   ========================================= */
+   /* Container settings */
+
+/* =========================================
+   Slider System & Theme Integration
+   ========================================= */
+.text-red-accent {
+    color: #cc0000;
+}
+
+.slider-window {
+    width: 100%;
+    overflow: hidden;
+    padding: 15px 5px; /* Top/bottom padding accommodates hover lifts cleanly */
+}
+
+.slider-track {
+    display: flex;
+    width: 200%; /* Spans across two pages */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hardcode Card Dimensions & Theme Colors */
+.product-card {
+    width: calc(25% - 24px); /* Computes 4 items perfectly into page view width */
+    margin: 0 12px;
+    background-color: #111111; /* Matches hero fallback color */
+    border: 2px solid #222222;
+    border-radius: 2px; /* Sharp angles match aggressive gaming theme */
+    overflow: hidden;
+    transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bg-dark-theme {
+    background-color: #111111;
+}
+
+.card-title {
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+/* Specs Details Styling */
+.product-specs-list li {
+    border-bottom: 1px dashed #222222;
+}
+.product-specs-list li:last-child {
+    border-bottom: none;
+}
+
+/* Image Frame & Red Angular Geometry */
+.card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    background-color: #0a0a0a;
+    height: 200px;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-red-accent {
+    position: absolute;
+    bottom: -5px;
+    left: -10%;
+    width: 35%;
+    height: 10px;
+    background-color: #cc0000;
+    transform: skewX(-30deg); /* Explicitly matches .hero-red-skew */
+    transition: width 0.4s ease-in-out;
+}
+
+/* Interaction Controls Styling */
+.product-card .card-link {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.product-card .cart-btn {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+}
+
+.controls-wrapper .arrow-btn {
+    background-color: #111111;
+    border: 2px solid #cc0000;
+    color: #ffffff;
+    font-weight: bold;
+    text-uppercase: uppercase;
+    border-radius: 2px;
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   Interactive States (Pure CSS Fluid Flows)
+   ========================================= */
+#page-1:checked ~ .slider-window .slider-track { transform: translateX(0%); }
+#page-2:checked ~ .slider-window .slider-track { transform: translateX(-50%); }
+
+.arrow-btn { display: none; cursor: pointer; }
+#page-1:checked ~ .controls-wrapper .right-arrow { display: inline-block; }
+#page-2:checked ~ .controls-wrapper .left-arrow { display: inline-block; }
+
+.controls-wrapper .arrow-btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: #cc0000;
+}
+
+.product-card:hover .card-img-wrapper img { transform: scale(1.08); }
+.product-card:hover .card-red-accent { width: 115%; }
+.product-card .card-link:hover { color: #cc0000; }
+.product-card .cart-btn:hover { color: #ffffff; transform: scale(1.25) rotate(-5deg); }
+
+
 
 /* =========================================
    Keyframe Animations
