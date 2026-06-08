@@ -318,6 +318,20 @@ body, html {
 }
 
 /* =========================================
+   Sales & Promotions Section
+   ========================================= */
+
+.sales-section {
+    background-color: #ffffff;
+}
+
+h2 {
+    font-family: 'Liham-Canva', serif;
+    color: #cc0000;
+    text-shadow: 1px 1px 5px rgba(204, 0, 0, 0.5);
+}
+
+/* =========================================
    Keyframe Animations
    ========================================= */
 @keyframes float {
