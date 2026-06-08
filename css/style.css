@@ -1,0 +1,314 @@
+/* =========================================
+   Base Resets & Typography
+   ========================================= */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #111111;
+    height: 100%;
+}
+
+.z-index-top {
+    z-index: 100;
+}
+
+/* =========================================
+   Navigation Bar Styles
+   ========================================= */
+.brand-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.text-danger {
+    color: #cc0000 !important;
+}
+
+/* Skewed Navigation Links */
+.custom-nav-menu {
+    border-right: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    height: 100%;
+}
+
+.nav-item {
+    position: relative;
+    padding: 1.5rem 1rem;
+    border-right: 1px solid #cccccc;
+    background-color: #ffffff;
+    transform: skewX(-25deg);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    background-color: #f0f0f0;
+}
+
+.nav-item.active-nav {
+    background-color: #e6e6e6;
+    border-top: 3px solid #cc0000;
+    border-bottom: 3px solid #cc0000;
+}
+
+.nav-item.active-nav .nav-link {
+    color: #cc0000 !important;
+}
+
+.nav-link {
+    color: #000000 !important;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0 1.5rem !important;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Un-skew the text so it reads normally */
+.unskew {
+    display: inline-block;
+    transform: skewX(25deg);
+}
+
+.nav-item:hover .unskew {
+    transform: skewX(25deg) scale(1.05);
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 25px;
+    padding: 0.25rem;
+    border: 2px solid #cc0000;
+    box-shadow: 0 0 15px rgba(204, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+.search-container:hover, .search-container:focus-within {
+    box-shadow: 0 0 20px rgba(204, 0, 0, 0.9);
+    transform: scale(1.02);
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #ffffff;
+}
+
+.search-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    padding-right: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-btn:hover {
+    color: #cc0000;
+    transform: scale(1.1);
+}
+
+/* Cart Icon */
+.cart-icon-container {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.cart-icon-container:hover {
+    transform: translateY(-3px);
+    color: #cc0000;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================================
+   Hero Section Layout & Animations
+   ========================================= */
+.hero-section {
+    height: calc(100vh - 76px);
+    min-height: 700px;
+}
+
+/* Background Image Layer (Updated Path) */
+.hero-bg-image {
+    background-image: url('images/rider-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Dark overlay for right side text readability */
+.hero-bg-overlay {
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+    z-index: 2;
+}
+
+/* The Core Transform: Angled Red Shape */
+.hero-red-skew {
+    top: 0;
+    left: -20%;
+    width: 65%;
+    height: 100%;
+    background-color: #cc0000;
+    transform: skewX(-30deg);
+    transform-origin: top left;
+    z-index: 3;
+    box-shadow: 15px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure content sits above backgrounds */
+.content-wrapper {
+    z-index: 4;
+}
+
+/* =========================================
+   Left Column (Product)
+   ========================================= */
+.product-image-wrapper {
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    animation: float 6s ease-in-out infinite;
+    z-index: 5;
+    margin-top: 2rem;
+}
+
+/* Hovering scale interaction */
+.product-image-wrapper:hover {
+    transform: scale(1.05) rotate(-2deg);
+    animation-play-state: paused;
+}
+
+.helmet-img {
+    max-width: 120%;
+    margin-left: -10%;
+    filter: drop-shadow(15px 20px 20px rgba(0,0,0,0.6));
+}
+
+.product-feature-text {
+    z-index: 5;
+}
+
+.product-feature-text h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   Right Column (Text & CTA)
+   ========================================= */
+.right-content {
+    z-index: 5;
+}
+
+.sub-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.main-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 6rem;
+    letter-spacing: 2px;
+    line-height: 1;
+    text-shadow: 4px 4px 10px rgba(0,0,0,0.6);
+}
+
+.description-text {
+    font-size: 1.1rem;
+    max-width: 450px;
+    font-weight: 500;
+}
+
+/* Shop Now Button */
+.btn-cta {
+    background-color: #990000;
+    border: 2px solid #cc0000;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    border-radius: 0;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.btn-cta:hover, .btn-cta:focus {
+    background-color: #cc0000;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(204, 0, 0, 0.6);
+    color: #ffffff !important;
+}
+
+.btn-cta:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* =========================================
+   Keyframe Animations
+   ========================================= */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* =========================================
+   Responsive Adjustments
+   ========================================= */
+@media (max-width: 991px) {
+    .hero-red-skew {
+        width: 150%;
+        transform: skewY(-15deg);
+        left: 0;
+        top: -20%;
+        height: 60%;
+    }
+    
+    .nav-item {
+        transform: skewX(0);
+        border: none;
+        border-bottom: 1px solid #cccccc;
+    }
+    
+    .unskew {
+        transform: skewX(0);
+    }
+    
+    .main-heading {
+        font-size: 4rem;
+    }
+}
