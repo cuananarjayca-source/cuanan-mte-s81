@@ -13,11 +13,19 @@ body, html {
     z-index: 100;
 }
 
+@font-face {
+    font-family: "Liham-Canva";
+    src: url("../fonts/Liham_2.0.woff2") format("woff2"),
+         url("../fonts/Liham_2.0.woff") format("woff");
+    font-style: normal; /* Fixed typo here */
+    font-weight: 400;
+}
+
 /* =========================================
    Navigation Bar Styles
    ========================================= */
 .brand-text {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Liham-Canva', serif;
     font-size: 1.5rem;
     letter-spacing: 2px;
 }
@@ -28,8 +36,7 @@ body, html {
 
 /* Skewed Navigation Links */
 .custom-nav-menu {
-    border-right: 1px solid #cccccc;
-    border-left: 1px solid #cccccc;
+    display: flex;
     height: 100%;
 }
 
@@ -45,6 +52,7 @@ body, html {
 
 .nav-item:hover {
     background-color: #f0f0f0;
+    border-bottom: 3px solid #cc0000;
 }
 
 .nav-item.active-nav {
@@ -58,6 +66,7 @@ body, html {
 }
 
 .nav-link {
+    font-family: 'Inter', sans-serif;
     color: #000000 !important;
     font-weight: 700;
     font-size: 0.85rem;
@@ -157,15 +166,7 @@ body, html {
 .hero-section {
     height: calc(100vh - 76px);
     min-height: 700px;
-}
-
-/* Background Image Layer (Updated Path) */
-.hero-bg-image {
-    background-image: linear-gradient(
-    rgba(0, 0, 0, 0.7), /* Top/Starting color (Red, Green, Blue, Alpha/Opacity) */
-    rgba(0, 0, 0, 0.7)  /* Bottom/Ending color (Keep identical for a solid overlay) */
-    ),
-    url('../images/bg-apex-guild.png');
+    background-image: url('../images/bg-apex-guild.png');
     background-color: #111111; /* Fallback color */
     background-size: cover;
     background-position: center;
@@ -173,7 +174,11 @@ body, html {
     position: relative;
     overflow: hidden;
     text-align: left !important; /* Forces text to align left */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adds a slight shadow to pop off the black bg */
+}
+
+/* Background Image Layer (Updated Path) */
+.hero-bg-image {
+    position: absolute;
     z-index: 1;
 }
 
@@ -192,7 +197,6 @@ body, html {
     transform: skewX(-30deg);
     transform-origin: top left;
     z-index: 3;
-    box-shadow: 15px 0 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Ensure content sits above backgrounds */
@@ -220,7 +224,6 @@ body, html {
 .helmet-img {
     max-width: 120%;
     margin-left: -10%;
-    filter: drop-shadow(15px 20px 20px rgba(0,0,0,0.6));
 }
 
 .product-feature-text {
@@ -228,11 +231,10 @@ body, html {
 }
 
 .product-feature-text h3 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 /* =========================================
@@ -252,7 +254,6 @@ body, html {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Slightly lighter overlay */
     z-index: 1;
 }
 
@@ -264,13 +265,13 @@ body, html {
 
 /* Typography tweaked to match the target design perfectly */
 .hero-image-card .sub-heading {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Liham-Canva', serif;
     font-size: 1.5rem; 
     letter-spacing: 2px;
 }
 
 .hero-image-card .main-heading {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Liham-Canva', serif;
     font-size: 4.5rem; /* Scaled up so "HELMET" dominates */
     letter-spacing: 2px;
     line-height: 1;
@@ -286,6 +287,7 @@ body, html {
 }
 
 .description-text {
+    font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
     max-width: 450px;
     font-weight: 500;
@@ -293,6 +295,7 @@ body, html {
 
 /* Shop Now Button */
 .btn-cta {
+    font-family: 'Montserrat', sans-serif;
     background-color: #990000;
     border: 2px solid #cc0000;
     padding: 1rem 3rem;
