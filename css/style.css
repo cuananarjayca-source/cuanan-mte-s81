@@ -431,7 +431,7 @@ h2 {
     border: 2px solid #cc0000;
     color: #ffffff;
     font-weight: bold;
-    text-uppercase: uppercase;
+    text-transform: uppercase;
     border-radius: 2px;
     padding: 10px 24px;
     transition: all 0.3s ease;
@@ -462,6 +462,89 @@ h2 {
 .product-card .card-link:hover { color: #cc0000; }
 .product-card .cart-btn:hover { color: #ffffff; transform: scale(1.25) rotate(-5deg); }
 
+/* =========================================
+   Gaming Footer Styles (Liham Guild Theme)
+   ========================================= */
+
+.guild-footer {
+    background-color: #0d0d0d; /* Slightly darker than cards for visual depth */
+    color: #ffffff;
+    border-top: 3px solid #222222;
+}
+
+/* Sharp geometric ribbon cutting into the section above it */
+.footer-top-angle {
+    position: absolute;
+    top: -20px;
+    right: 5%;
+    width: 250px;
+    height: 40px;
+    background-color: #cc0000; /* Theme Red */
+    transform: skewX(-30deg);  /* Matches hero skew perfectly */
+    z-index: 1;
+}
+
+.text-red-accent {
+    color: #cc0000;
+}
+
+.footer-heading {
+    font-family: 'Liham-Canva', serif;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+/* --- Smooth Flow Navigation Links --- */
+.footer-links-list a {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.footer-links-list a:hover {
+    color: #cc0000;
+    transform: translateX(6px); /* Nudges text right smoothly on hover */
+}
+
+/* --- Angular Social Buttons --- */
+.social-icon-box {
+    width: 42px;
+    height: 42px;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    color: #ffffff;
+    text-decoration: none;
+    transform: skewX(-10deg); /* Aggressive mechanical box styling */
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Correct icon tilt inside skewed container */
+.social-icon-box i {
+    transform: skewX(10deg);
+}
+
+.social-icon-box:hover {
+    background-color: #cc0000;
+    border-color: #cc0000;
+    color: #ffffff;
+    transform: translateY(-4px) skewX(-10deg); /* Lifts up organically */
+}
+
+/* --- Decorative Details --- */
+.footer-separator {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(204,0,0,0.5) 0%, rgba(34,34,34,1) 50%, rgba(34,34,34,0) 100%);
+}
+
+.copyright-text {
+    letter-spacing: 0.5px;
+}
 
 
 /* =========================================
