@@ -40,6 +40,15 @@ body, html {
     height: 100%;
 }
 
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 3px solid #222222;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top:0;
+    z-index:1000;
+}
+
 .nav-item {
     position: relative;
     padding: 1.5rem 1rem;
@@ -172,7 +181,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     text-align: left !important; /* Forces text to align left */
 }
 
@@ -350,7 +359,7 @@ h2 {
 
 .slider-window {
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
     padding: 15px 5px; /* Top/bottom padding accommodates hover lifts cleanly */
 }
 
@@ -367,7 +376,7 @@ h2 {
     background-color: #111111; /* Matches hero fallback color */
     border: 2px solid #222222;
     border-radius: 2px; /* Sharp angles match aggressive gaming theme */
-    overflow: hidden;
+    overflow: visible;
     transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -559,26 +568,117 @@ h2 {
 /* =========================================
    Responsive Adjustments
    ========================================= */
-@media (max-width: 991px) {
-    .hero-red-skew {
-        width: 150%;
-        transform: skewY(-15deg);
-        left: 0;
-        top: -20%;
-        height: 60%;
+/* =========================================
+   Responsive Adjustments & Breakpoints
+   ========================================= */
+
+/* Desktop Fix for Slider Math */
+@media (min-width: 992px) {
+    .product-card {
+        /* Since the track is 200% wide, 8 items need to be 12.5% to equal 25% of the screen */
+        flex: 0 0 calc(12.5% - 24px);
+        width: calc(12.5% - 24px);
     }
-    
+}
+
+/* Tablet & Mobile Layout (991px and below) */
+@media (max-width: 991px) {
+    /* Navbar Adjustment */
+    .custom-nav-menu {
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 0;
+    }
     .nav-item {
         transform: skewX(0);
         border: none;
-        border-bottom: 1px solid #cccccc;
+        border-bottom: 1px solid #eeeeee;
+        width: 100%;
+        text-align: center;
     }
-    
     .unskew {
         transform: skewX(0);
     }
     
+    /* Hero Section */
+    .hero-section {
+        height: auto;
+        padding: 3rem 0;
+    }
+    .hero-red-skew {
+        width: 100%;
+        transform: skewY(-10deg);
+        left: 0;
+        top: -5%;
+        height: 60%;
+    }
+    .product-col {
+        margin-top: 2rem;
+    }
+    .product-feature-text {
+        padding-left: 0 !important;
+        text-align: center;
+    }
+    .hero-image-card {
+        text-align: center !important;
+        padding: 2.5rem 1.5rem;
+    }
     .main-heading {
-        font-size: 4rem;
+        font-size: 3.5rem;
+        margin-left: 0;
+    }
+    
+    /* Convert Slider to Native Touch Swipe for Tablets/Mobile */
+    .slider-track {
+        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 1.5rem;
+        -webkit-overflow-scrolling: touch;
+        /* Negate the radio button CSS logic on mobile */
+        transform: none !important; 
+    }
+    .product-card {
+        /* Shows ~2.2 cards on a tablet screen */
+        flex: 0 0 calc(45% - 20px);
+        width: calc(45% - 20px);
+        margin: 0 10px;
+        scroll-snap-align: center;
+    }
+    .controls-wrapper {
+        display: none !important; /* Hide CSS arrow buttons, rely on swipe */
+    }
+}
+
+/* Mobile Specific Tweaks (767px and below) */
+@media (max-width: 767px) {
+    /* Hero Typography */
+    .main-heading {
+        font-size: 2.8rem;
+    }
+    .sub-heading {
+        font-size: 1.2rem;
+    }
+    .description-text {
+        font-size: 0.95rem;
+        margin: 0 auto 1.5rem auto;
+    }
+    
+    /* Slider - 1 Item per view */
+    .product-card {
+        flex: 0 0 calc(85% - 20px);
+        width: calc(85% - 20px);
+    }
+
+    /* Footer Alignment */
+    .guild-footer {
+        text-align: center;
+    }
+    .social-flex {
+        justify-content: center;
+    }
+    .footer-top-angle {
+        width: 150px;
+        right: -20px;
     }
 }
